@@ -37,26 +37,85 @@ for(const callBtn of allCallBtn){
                 alert("you do not have sufficient coins");
                 return;
         }else{
-             alert(`${serviceName} , ${serviceNumber}`);
+             alert(` calling  ${serviceName}  ${serviceNumber}`);
              coinNumber = coinNumber-20;
         }
         
 document.getElementById("coin-number").innerText = coinNumber;
    
-
-       
       
-
     let history = {
         service : serviceName,
-        number : serviceNumber
+        number : serviceNumber,
+        time:new Date().toLocaleTimeString(),
     }  
 
     callHistory.push(history)
 
+
+const historyDiv= document.getElementById("history");
+
+historyDiv.innerHTML=""
+
+
+    for (let i = 0; i < callHistory.length; i++) {
+
+
+
+const newDiv = document.createElement("div");
+ newDiv.innerHTML =`
+ 
+ 
+    <div class="letest-call-history flex items-center justify-between my-3">
+    <div class="left">
+        <h2 class="font-medium">${callHistory[i].service}</h2>
+        <p>${callHistory[i].number}</p>
+    </div>
+    <div class="right">
+        <p class="text-[12px] sm:text-[15px] ml-1">${callHistory[i].time}</p>
+    </div>
+
+    </div>
+
+ 
+ 
+ `
+
+historyDiv.appendChild(newDiv)
+
+const clearBtn = document.getElementById("clear-button");
+
+clearBtn.addEventListener("click",function(){
+    newDiv.innerHTML = "";
+    callHistory = [];
+
+
+})
+
+}
       
+    })
+
+}
+
+
+//  copy btn section 
+
+const copyBtns= document.querySelectorAll(".copy-button");
+for(const btn of copyBtns){
+    btn.addEventListener("click",function(){
+         let copyNumber = parseInt(document.getElementById("copy-number").innerText);
+         copyNumber++
+         document.getElementById("copy-number").innerText = copyNumber;
+        const parentOfBtn = btn.parentNode;
+      const parentOfParent = parentOfBtn.parentNode;
+   const number = parentOfParent.querySelector("h1").innerText;
+
+     const copied = navigator.clipboard.writeText(number);
+    alert(`Number has been copied successfully  ${ number}`)
+
+
     })
 }
 
-    
 
