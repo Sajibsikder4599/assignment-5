@@ -34,10 +34,10 @@ for(const callBtn of allCallBtn){
         
 
         if(coinNumber < 20){
-                alert("you do not have sufficient coins");
+                alert("❌ You do not have sufficient coins");
                 return;
         }else{
-             alert(` calling  ${serviceName}  ${serviceNumber}`);
+             alert(` 📞 Calling  ${serviceName}  ${serviceNumber}....`);
              coinNumber = coinNumber-20;
         }
         
@@ -67,12 +67,12 @@ const newDiv = document.createElement("div");
  
  
     <div class="letest-call-history flex items-center justify-between my-3">
-    <div class="left">
-        <h2 class="font-medium">${callHistory[i].service}</h2>
+    <div class="left ">
+        <h2 class="font-medium text-[13px]">${callHistory[i].service}</h2>
         <p>${callHistory[i].number}</p>
     </div>
     <div class="right">
-        <p class="text-[12px] sm:text-[15px] ml-1">${callHistory[i].time}</p>
+        <p class="text-[12px] sm:text-[14px]  ml-1">${callHistory[i].time}</p>
     </div>
 
     </div>
