@@ -19,7 +19,7 @@
 2. How do you **create and insert a new element into the DOM**?
 **Answer of  question**
 
-** first of all declare variable then document.cresteElement(""). I pass the html tag which i want to create inside of reateElement.
+** first of all declare variable then document.createElement(""). I pass the html tag which i want to create inside of createElement.
 
 ## Example: let newDiv = document.createElement("div");
 
@@ -48,7 +48,7 @@ as long as reaches to root element.
 ```
 
 here,
-if i click the button it continue to upward parent to **grandparent**.
+if i click the button it continues to upward parent till **grandparent**.
 
 
 
